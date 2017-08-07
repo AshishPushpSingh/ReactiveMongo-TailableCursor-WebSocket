@@ -26,7 +26,7 @@ class Application @Inject()(val reactiveMongoApi: ReactiveMongoApi, val dataServ
     dataService.saveData(request.body.asJson.get.toString(), batchId)
     Ok("Got request [" + request + "]")
   }
-  
+
   // let's be sure that the collections exists and is capped
   val futureCollection: Future[JSONCollection] = {
     val db = reactiveMongoApi.db
